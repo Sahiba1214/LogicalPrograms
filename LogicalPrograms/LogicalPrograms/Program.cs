@@ -4,20 +4,40 @@ using System.Text;
 
 namespace LogicalPrograms
 {
-    public class ReversealNumber
+    class CoupanNumber
     {
-        public void Reverse()
+        public void Calculation(int N)
         {
-            Console.WriteLine("Enter a Number : ");
-            int num = Convert.ToInt32(Console.ReadLine());
-            int revNum = 0, rem;
-            while (num > 0)
+            int[] array = new int[N];
+            for (int i = 0; i < N; i++)
             {
-                rem = num % 10;
-                revNum = revNum * 10 + rem;
-                num = num / 10;
+                Random random = new Random();
+                int Random_generate = random.Next(999, 10000);
+                if (i == 0)
+                {
+                    array[i] = Random_generate;
+                }
+                else
+                {
+                    int j = 0;
+                    int check = 0;
+                    while (j < i)
+                    {
+                        if (array[j] == Random_generate)
+                            check = 1;
+                        j++;
+                    }
+                    if (check == 0)
+                        array[i] = Random_generate;
+                    else
+                        i--;
+                }
             }
-            Console.WriteLine("The Reverse num is : " + revNum);
+            Console.Write("Distinct Coupons Are:");
+            for (int i = 0; i < N; i++)
+            {
+                Console.Write($" {array[i]}");
+            }
         }
     }
 }

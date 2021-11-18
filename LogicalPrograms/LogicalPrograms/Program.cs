@@ -4,28 +4,20 @@ using System.Text;
 
 namespace LogicalPrograms
 {
-    public class PrimeNumber
+    public class ReversealNumber
     {
-        public void Prime()
+        public void Reverse()
         {
             Console.WriteLine("Enter a Number : ");
             int num = Convert.ToInt32(Console.ReadLine());
-            int count = 0;
-            for (int i = 1; i <= num; i++)
+            int revNum = 0, rem;
+            while (num > 0)
             {
-                if (num % i == 0)
-                {
-                    count++;
-                }
+                rem = num % 10;
+                revNum = revNum * 10 + rem;
+                num = num / 10;
             }
-            if (count == 2)
-            {
-                Console.WriteLine(num + " is a Prime number");
-            }
-            else
-            {
-                Console.WriteLine(num + " is not a Prime number");
-            }
+            Console.WriteLine("The Reverse num is : " + revNum);
         }
     }
 }

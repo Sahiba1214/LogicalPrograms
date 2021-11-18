@@ -1,43 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
+using System.Threading;
 
 namespace LogicalPrograms
 {
-    class CoupanNumber
+    public class Simulate
     {
-        public void Calculation(int N)
+        public void Calculate()
         {
-            int[] array = new int[N];
-            for (int i = 0; i < N; i++)
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            for (int i = 0; i < 100; i++)
             {
-                Random random = new Random();
-                int Random_generate = random.Next(999, 10000);
-                if (i == 0)
-                {
-                    array[i] = Random_generate;
-                }
-                else
-                {
-                    int j = 0;
-                    int check = 0;
-                    while (j < i)
-                    {
-                        if (array[j] == Random_generate)
-                            check = 1;
-                        j++;
-                    }
-                    if (check == 0)
-                        array[i] = Random_generate;
-                    else
-                        i--;
-                }
+                Thread.Sleep(6);
             }
-            Console.Write("Distinct Coupons Are:");
-            for (int i = 0; i < N; i++)
-            {
-                Console.Write($" {array[i]}");
-            }
+            sw.Stop();
+            Console.WriteLine("The lepse time is:{0:hh\\:mm\\:ss}", sw.Elapsed);
         }
     }
 }

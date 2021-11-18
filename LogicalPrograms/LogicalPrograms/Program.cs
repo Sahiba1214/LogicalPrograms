@@ -4,28 +4,27 @@ using System.Text;
 
 namespace LogicalPrograms
 {
-    public class PerfectNumber
+    public class PrimeNumber
     {
-        public void Perfect()
+        public void Prime()
         {
-            int sum = 0;
-            Console.WriteLine("Enter the number :");
+            Console.WriteLine("Enter a Number : ");
             int num = Convert.ToInt32(Console.ReadLine());
-            for (int i = 1; i < num; i++)
+            int count = 0;
+            for (int i = 1; i <= num; i++)
             {
                 if (num % i == 0)
                 {
-                    sum += i;
-                    Console.WriteLine("{0} ", i);
+                    count++;
                 }
             }
-            if (sum == num)
+            if (count == 2)
             {
-                Console.WriteLine(num + " is a Perfect number");
+                Console.WriteLine(num + " is a Prime number");
             }
             else
             {
-                Console.WriteLine(num + " is not a Perfect number");
+                Console.WriteLine(num + " is not a Prime number");
             }
         }
     }
